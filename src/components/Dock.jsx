@@ -53,7 +53,7 @@ const Dock = () => {
         return () => {
             dock.removeEventListener("mousemove", handleMouseMove);
             dock.removeEventListener("mouseleave", resetIcons);
-        }
+        };
     }, []);
 
 
@@ -73,7 +73,7 @@ const Dock = () => {
         } else {
             openWindow(app.id);
         }
-        //console.log(windows);
+        console.log(windows);
     };
 
     return (
@@ -88,7 +88,7 @@ const Dock = () => {
                                 data-tooltip-content={name}
                                 data-tooltip-delay-show={150}
                                 disabled={!canOpen}
-                                onClick={() => toggleApp(id, canOpen )}
+                                onClick={() => toggleApp({id, canOpen})}
                         >
                             <img src={`/images/${icon}`}
                                  alt={name}
